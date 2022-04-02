@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 18292665477300296}
   - component: {fileID: 18292665477300299}
+  - component: {fileID: 262279973}
   m_Layer: 8
   m_Name: New Sprite
   m_TagString: Untagged
@@ -70,7 +71,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 86b7db6229f2b5f4cb598e6942863c10, type: 3}
+  m_Sprite: {fileID: 4518225611054890064, guid: 1185c19efa9683e43b0fcb4d51db1c59,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -81,6 +83,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &262279973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18292665477300297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739ff56fb749c7e4d85a66f6a3be7135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSpeed: 0.1
+  spriteRenderer: {fileID: 18292665477300299}
+  idle:
+  - {fileID: 4518225611054890064, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  - {fileID: 1871674578834246284, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  - {fileID: -8148742256322455360, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  - {fileID: 3489784368332026933, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  walkCycle:
+  - {fileID: -3944583295012536477, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  - {fileID: 3090173003755996115, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  - {fileID: 8403341588387058359, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  - {fileID: 8222716190985997936, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  - {fileID: -3764308334532073066, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  - {fileID: -3961127741491812631, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  - {fileID: 2707164253404849536, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  - {fileID: 760240769326365700, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  jumpStart:
+  - {fileID: 1723550264998150791, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  - {fileID: 3286906832049929247, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  - {fileID: 7634215581329522130, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  - {fileID: 5539777403619449140, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  jumpLoop:
+  - {fileID: -6321474878828185251, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  punch:
+  - {fileID: 2187288752748286106, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  - {fileID: -8430032442272652478, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  - {fileID: 6562097317275539161, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
 --- !u!1 &18292665992175383
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,6 +156,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 18292665477300296}
+  - {fileID: 8618948744873730629}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -153,7 +195,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.04}
-  m_Size: {x: 0.15, y: 0.25}
+  m_Size: {x: 0.15, y: 0.24}
   m_Direction: 0
 --- !u!114 &964488118853245605
 MonoBehaviour:
@@ -168,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 18292665992175377}
-  walkSpeed: 50
+  walkSpeed: 30
   jumpStrength: 2.5
   jumpDecay: 8
   groundRaycastMask:
@@ -176,6 +218,7 @@ MonoBehaviour:
     m_Bits: 55
   isGrounded: 1
   jumpAmount: 0
+  lastXDirection: 0
 --- !u!114 &7241042260706123613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,3 +260,51 @@ MonoBehaviour:
   input: {fileID: 5901957087420567064}
   movement: {fileID: 964488118853245605}
   state: {fileID: 7241042260706123613}
+  anim: {fileID: 262279973}
+--- !u!1 &1579714929131925504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8618948744873730629}
+  - component: {fileID: 1501456724021794373}
+  m_Layer: 9
+  m_Name: Hit Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8618948744873730629
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579714929131925504}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 18292665992175376}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1501456724021794373
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579714929131925504}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.030586213}
+  serializedVersion: 2
+  m_Radius: 0.17560694
