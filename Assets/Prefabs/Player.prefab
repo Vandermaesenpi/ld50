@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 18292665477300296}
   - component: {fileID: 18292665477300299}
   - component: {fileID: 262279973}
+  - component: {fileID: 6088707053770068098}
   m_Layer: 8
-  m_Name: New Sprite
+  m_Name: Player Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationSpeed: 0.1
   spriteRenderer: {fileID: 18292665477300299}
+  blink: {fileID: 6088707053770068098}
   idle:
   - {fileID: 4518225611054890064, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
   - {fileID: 1871674578834246284, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
@@ -122,6 +124,21 @@ MonoBehaviour:
   - {fileID: 2187288752748286106, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
   - {fileID: -8430032442272652478, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
   - {fileID: 6562097317275539161, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  hurt:
+  - {fileID: 5492903409996221455, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+--- !u!114 &6088707053770068098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18292665477300297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2523d74d5adc474691fe3324e6f377a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rend: {fileID: 18292665477300299}
 --- !u!1 &18292665992175383
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,8 +211,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.04}
-  m_Size: {x: 0.15, y: 0.24}
+  m_Offset: {x: 0, y: -0.065198615}
+  m_Size: {x: 0.12927747, y: 0.18960276}
   m_Direction: 0
 --- !u!114 &964488118853245605
 MonoBehaviour:
@@ -219,6 +236,10 @@ MonoBehaviour:
   isGrounded: 1
   jumpAmount: 0
   lastXDirection: 0
+  knockBack: 0
+  knockDirection: 0
+  knockForce: 1
+  knockTime: 0.5
 --- !u!114 &7241042260706123613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +282,7 @@ MonoBehaviour:
   movement: {fileID: 964488118853245605}
   state: {fileID: 7241042260706123613}
   anim: {fileID: 262279973}
+  hit: {fileID: 2504216835922829374}
 --- !u!1 &1579714929131925504
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,6 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8618948744873730629}
   - component: {fileID: 1501456724021794373}
+  - component: {fileID: 2504216835922829374}
   m_Layer: 9
   m_Name: Hit Collider
   m_TagString: Untagged
@@ -307,4 +330,17 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.030586213}
   serializedVersion: 2
-  m_Radius: 0.17560694
+  m_Radius: 0.25
+--- !u!114 &2504216835922829374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579714929131925504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb1023dc425dea042955f55a93cd643a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  col: {fileID: 1501456724021794373}

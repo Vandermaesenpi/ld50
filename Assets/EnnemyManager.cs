@@ -4,18 +4,5 @@ using UnityEngine;
 
 public class EnnemyManager : MonoBehaviour
 {
-    void Awake()
-    {
-        
-    }
-    
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+    public List<Hittable> hittables;
 }

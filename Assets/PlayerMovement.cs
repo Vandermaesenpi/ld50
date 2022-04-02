@@ -19,13 +19,28 @@ public class PlayerMovement : MonoBehaviour
     public float jumpAmount = 0f;
     public float lastXDirection = 0f;
 
-    public bool CanMove => GM.Player.state.currentState != PlayerState.PUNCHING || !isGrounded;
+    public float knockBack = 0f;
+    public float knockDirection = 0f;
+    public float knockForce;
+    public float knockTime;
+
+    public bool CanMove => (GM.Player.state.currentState != PlayerState.PUNCHING || !isGrounded) && knockBack <= 0f;
+
+    public void KnockBack(float direction){
+        knockDirection = direction;
+        knockBack = knockTime;
+        GM.Player.state.UpdateState(PlayerState.HURT);
+        rb.AddForce(new Vector2(knockDirection * knockForce, knockForce*2f), ForceMode2D.Impulse);
+    }
 
     private void FixedUpdate() {
         isGrounded = CheckIfGrounded();
         Vector2 movementVector = GM.Player.input.movementDirection;
-
-        if(isGrounded && movementVector.y > 0){
+        if(knockBack > 0f){
+            knockBack -= Time.deltaTime;
+            return;
+        }
+        if(isGrounded && movementVector.y > 0 && knockBack <= 0f){
             jumpAmount = jumpStrength;
             GM.Player.state.UpdateState(PlayerState.JUMPING);
         }

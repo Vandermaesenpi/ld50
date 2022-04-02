@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class PlayerAnimator : SpriteAnimator
 {
+
+    public SpriteBlink blink;
     public List<Sprite> idle;
     public List<Sprite> walkCycle;
     public List<Sprite> jumpStart;
     public List<Sprite> jumpLoop;
     public List<Sprite> punch;
+    public List<Sprite> hurt;
 
     public void IdleAnim(){
         SetAnimation(idle);
@@ -31,4 +34,10 @@ public class PlayerAnimator : SpriteAnimator
     {
         SetAnimation(punch, onComplete);
     }
+
+    public void HurtAnim(){
+        SetAnimation(hurt);
+        blink.Blink();
+    }
+
 }

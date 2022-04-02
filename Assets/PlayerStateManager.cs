@@ -25,6 +25,7 @@ public class PlayerStateManager : MonoBehaviour
             break;
 
             case PlayerState.PUNCHING:
+            GM.Player.hit.Attack();
             GM.Player.anim.PunchAnim(EndPunch);
             break;
             
@@ -42,5 +43,6 @@ public enum PlayerState{
     IDLE,
     MOVING,
     JUMPING,
-    PUNCHING
+    PUNCHING,
+    HURT
 }

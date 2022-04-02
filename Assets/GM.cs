@@ -26,8 +26,15 @@ public class GM : MonoBehaviour
 #endregion
 
     public PlayerManager player;
+    public EnnemyManager ennemy;
+    public CameraManager cam;
+
+    public Material blinkMat;
+    public Material spriteMat;
 
 
     public static PlayerManager Player => GM.I.player;
+    public static EnnemyManager Ennemies => GM.I.ennemy;
+    public static CameraManager Cam => GM.I.cam;
 
 }
