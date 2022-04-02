@@ -26,6 +26,7 @@ public class BossHandForget : BossHand
 
     public override void Hit()
     {
+        if(currentState != HandState.ATTACK){return;}
         hurt = true;
         boss.Damage(1);
         blink.Blink();

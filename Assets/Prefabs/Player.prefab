@@ -126,6 +126,12 @@ MonoBehaviour:
   - {fileID: 6562097317275539161, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
   hurt:
   - {fileID: 5492903409996221455, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  die:
+  - {fileID: -5136658248656738812, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  - {fileID: 4115175211340068186, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  - {fileID: -7289432629376863316, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  - {fileID: -942514622319641326, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
+  - {fileID: -294642602615556148, guid: 1185c19efa9683e43b0fcb4d51db1c59, type: 3}
 --- !u!114 &6088707053770068098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,11 +284,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9eb905485cadaf4d96381ac2099d19d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP: 6
   input: {fileID: 5901957087420567064}
   movement: {fileID: 964488118853245605}
   state: {fileID: 7241042260706123613}
   anim: {fileID: 262279973}
   hit: {fileID: 2504216835922829374}
+  health: {fileID: 0}
 --- !u!1 &1579714929131925504
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,3 +352,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   col: {fileID: 1501456724021794373}
+  mask:
+    serializedVersion: 2
+    m_Bits: 512

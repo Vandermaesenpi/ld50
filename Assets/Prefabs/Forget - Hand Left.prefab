@@ -1,5 +1,76 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4530033982435138307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6834223840092187850}
+  - component: {fileID: 2509962533809197534}
+  - component: {fileID: 8450520137869441376}
+  m_Layer: 10
+  m_Name: Damager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6834223840092187850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4530033982435138307}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8195100608753424666}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2509962533809197534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4530033982435138307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb6e9558e5bbab54f9b01999dc5ce0a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  col: {fileID: 8450520137869441376}
+--- !u!61 &8450520137869441376
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4530033982435138307}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.048971385, y: -0.2492258}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6716036, y: 0.32313812}
+  m_EdgeRadius: 0
 --- !u!1 &8195100608753424667
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,8 +82,7 @@ GameObject:
   - component: {fileID: 8195100608753424666}
   - component: {fileID: 3123435271346204496}
   - component: {fileID: 7568323390180830566}
-  - component: {fileID: 3236830050989043770}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Forget - Hand Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,6 +101,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8195100610535498006}
+  - {fileID: 6834223840092187850}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -55,7 +126,7 @@ MonoBehaviour:
   downSpeed: 0.2
   downTime: 2
   returnTime: 1
-  damager: {fileID: 3236830050989043770}
+  damager: {fileID: 2509962533809197534}
   blink: {fileID: 2810357363558694609}
   spriteRenderer: {fileID: 8195100610535498005}
   idle: {fileID: -9213642446240296760, guid: ef54dddfa794ad741b5b0c48e70f67aa, type: 3}
@@ -73,10 +144,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.048971385, y: -0.2492258}
+  m_Offset: {x: 0.03819613, y: -0.08220917}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -87,21 +158,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6716036, y: 0.32313812}
+  m_Size: {x: 0.33757052, y: 0.37701452}
   m_EdgeRadius: 0
---- !u!114 &3236830050989043770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8195100608753424667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb6e9558e5bbab54f9b01999dc5ce0a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  col: {fileID: 7568323390180830566}
 --- !u!1 &8195100610535498007
 GameObject:
   m_ObjectHideFlags: 0

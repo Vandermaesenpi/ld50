@@ -1,25 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BossForget : Boss
 {
-    public SpriteRenderer headRenderer;
     public BopUpDown headBop;
     public BopUpDown necklaceBop;
+    public BossForgetNecklace necklaceHittable;
     public SpriteAnimator necklace;
     public SpriteAnimator shadow;
     public List<Sprite> shadowAnimation;
     public List<Sprite> appearAnimation;
     public List<Sprite> necklaceAnimation;
-    public List<Sprite> headStates;
 
-    public override void Damage(int amount)
-    {
-        StartCoroutine(HurtAnim(0.5f));
-        base.Damage(amount);
-    }
-
+    public bool necklaceOpen = false;
 
     private void Start() {
         shadow.SetAnimation(shadowAnimation, OnShadowEnd);
@@ -41,15 +36,16 @@ public class BossForget : Boss
 
 
     IEnumerator AIRoutine(){
+
+        bar.SetValue(HP, 15);
+
         while (HP > 0)
         {
             foreach (BossHand hand in hands)
             {
                 hand.gameObject.SetActive(true);
                 yield return null;
-                if(!hand.hurt){
-                    hand.UpdateState(HandState.SCANNING);
-                }
+                hand.UpdateState(HandState.SCANNING);
             }
             while (!AllHandsHurt)
             {
@@ -57,19 +53,37 @@ public class BossForget : Boss
             }
             yield return null;
 
-            // While Both Hands OK
-            // Hand scans + punch
+            necklace.SetAnimation(new List<Sprite>{necklaceAnimation[necklaceAnimation.Count-1]}, necklaceAnimation,  OnNecklaceOpen);
+            float necklaceWait = 5f;
+            while(!necklaceOpen){
+                yield return null;
+            }
+            necklaceHittable.invincible = false;
 
-        // Open necklace
+            while (necklaceOpen && necklaceWait > 0)
+            {
+                Debug.Log(necklaceWait);
+                necklaceWait -= Time.deltaTime;
+                yield return null;
+            }
+            List<Sprite> reverseNecklace = new List<Sprite>(necklaceAnimation);
+            reverseNecklace.Reverse();
+            necklace.SetAnimation(new List<Sprite>{necklaceAnimation[0]}, reverseNecklace);
 
-        // If necklace hit OR wait X sec
         }        
 
     }
 
-    IEnumerator HurtAnim(float time){
-        headRenderer.sprite = headStates[1];
-        yield return new WaitForSeconds(time);
-        headRenderer.sprite = headStates[0];
+    private void OnNecklaceOpen()
+    {
+        necklaceOpen = true;
     }
+
+    public void OnNecklaceHit()
+    {
+        necklaceOpen = false;
+        Damage(3);
+    }
+
+    
 }

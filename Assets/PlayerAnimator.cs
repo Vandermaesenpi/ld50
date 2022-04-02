@@ -13,6 +13,7 @@ public class PlayerAnimator : SpriteAnimator
     public List<Sprite> jumpLoop;
     public List<Sprite> punch;
     public List<Sprite> hurt;
+    public List<Sprite> die;
 
     public void IdleAnim(){
         SetAnimation(idle);
@@ -38,6 +39,10 @@ public class PlayerAnimator : SpriteAnimator
     public void HurtAnim(){
         SetAnimation(hurt);
         blink.Blink();
+    }
+
+    public void DieAnim(){
+        SetAnimation(new List<Sprite>{die[die.Count-1]}, die);
     }
 
 }

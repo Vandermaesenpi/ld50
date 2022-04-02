@@ -44,5 +44,6 @@ public enum PlayerState{
     MOVING,
     JUMPING,
     PUNCHING,
-    HURT
+    HURT,
+    DEAD
 }

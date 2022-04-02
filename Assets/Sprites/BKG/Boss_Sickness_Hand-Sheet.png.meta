@@ -1,31 +1,16 @@
 fileFormatVersion: 2
-guid: 78a5bd78cf8aac742b6267569812f61f
+guid: 24a5ac2e6efa6df4a91a71ce0eeb6a99
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2448798514620824389
-    second: Boss_Forget_Holes-Sheet_0
+      213: 4655332815536566018
+    second: Boss_Sickness_Hand-Sheet_0
   - first:
-      213: -5054994037693308377
-    second: Boss_Forget_Holes-Sheet_1
+      213: 8244162429532959639
+    second: Boss_Sickness_Hand-Sheet_1
   - first:
-      213: -4944372567504855345
-    second: Boss_Forget_Holes-Sheet_2
-  - first:
-      213: 1843161895940652079
-    second: Boss_Forget_Holes-Sheet_3
-  - first:
-      213: 5609270247491726071
-    second: Boss_Forget_Holes-Sheet_4
-  - first:
-      213: -6969423130928175486
-    second: Boss_Forget_Holes-Sheet_5
-  - first:
-      213: -3295587915385354751
-    second: Boss_Forget_Holes-Sheet_6
-  - first:
-      213: -4342189016489627158
-    second: Boss_Forget_Holes-Sheet_7
+      213: -2495884342315045331
+    second: Boss_Sickness_Hand-Sheet_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -135,13 +120,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boss_Forget_Holes-Sheet_0
+      name: Boss_Sickness_Hand-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 360
-        width: 320
-        height: 180
+        y: 103
+        width: 80
+        height: 103
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54b7a765641ebf120800000000000000
-      internalID: 2448798514620824389
+      spriteID: 20fa64dd7801b9040800000000000000
+      internalID: 4655332815536566018
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Forget_Holes-Sheet_1
+      name: Boss_Sickness_Hand-Sheet_1
       rect:
         serializedVersion: 2
-        x: 320
-        y: 360
-        width: 320
-        height: 180
+        x: 80
+        y: 103
+        width: 80
+        height: 103
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,104 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 722a29984bd09d9b0800000000000000
-      internalID: -5054994037693308377
+      spriteID: 793feeadc06296270800000000000000
+      internalID: 8244162429532959639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Forget_Holes-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 360
-        width: 320
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fcedfa4a85f026bb0800000000000000
-      internalID: -4944372567504855345
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Forget_Holes-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 180
-        width: 320
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f2cf3179af9349910800000000000000
-      internalID: 1843161895940652079
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Forget_Holes-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 180
-        width: 320
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7fa69e6229128dd40800000000000000
-      internalID: 5609270247491726071
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Forget_Holes-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 180
-        width: 320
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 286a2a78692a74f90800000000000000
-      internalID: -6969423130928175486
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Forget_Holes-Sheet_6
+      name: Boss_Sickness_Hand-Sheet_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 320
-        height: 180
+        width: 80
+        height: 103
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,29 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 106c2617048b342d0800000000000000
-      internalID: -3295587915385354751
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Forget_Holes-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 320
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae1788c68127db3c0800000000000000
-      internalID: -4342189016489627158
+      spriteID: d2e2ad71a66dc5dd0800000000000000
+      internalID: -2495884342315045331
       vertices: []
       indices: 
       edges: []
