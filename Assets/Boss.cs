@@ -10,6 +10,7 @@ public class Boss : MonoBehaviour
     public HealthBar bar;
 
     public List<BossHand> hands;
+    public Coroutine aiRoutine;
 
     public bool AllHandsHurt { get{
         foreach (BossHand hand in hands)

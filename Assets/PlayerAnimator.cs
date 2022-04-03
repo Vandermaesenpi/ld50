@@ -14,6 +14,7 @@ public class PlayerAnimator : SpriteAnimator
     public List<Sprite> punch;
     public List<Sprite> hurt;
     public List<Sprite> die;
+    public List<Sprite> win;
 
     public void IdleAnim(){
         SetAnimation(idle);
@@ -42,7 +43,16 @@ public class PlayerAnimator : SpriteAnimator
     }
 
     public void DieAnim(){
-        SetAnimation(new List<Sprite>{die[die.Count-1]}, die);
+        SetAnimation(new List<Sprite>{die[die.Count-1]}, die, DeathEnd);
     }
 
+    private void DeathEnd()
+    {
+        GM.UI.ShowDeathUI();
+    }
+
+    internal void WinAnim()
+    {
+        SetAnimation(win);
+    }
 }

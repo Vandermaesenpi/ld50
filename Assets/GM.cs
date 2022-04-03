@@ -28,13 +28,17 @@ public class GM : MonoBehaviour
     public PlayerManager player;
     public EnnemyManager ennemy;
     public CameraManager cam;
+    public UIManager ui;
 
     public Material blinkMat;
     public Material spriteMat;
+
+    public List<GameObject> bosses;
 
 
     public static PlayerManager Player => GM.I.player;
     public static EnnemyManager Ennemies => GM.I.ennemy;
     public static CameraManager Cam => GM.I.cam;
+    public static UIManager UI => GM.I.ui;
 
 }

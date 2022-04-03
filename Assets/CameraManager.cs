@@ -28,7 +28,7 @@ public class CameraManager : MonoBehaviour
     }
 
     IEnumerator ShakeRoutine(float time, float strength){
-        for (float i = 0; i < time; i += Time.deltaTime)
+        for (float i = 0; i < time; i += 1f/shakeFrequency)
         {
             transform.position = startPos + (Vector3)(Random.insideUnitCircle.normalized * strength);
             yield return new WaitForSeconds(1f/shakeFrequency);

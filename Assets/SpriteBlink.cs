@@ -8,6 +8,10 @@ public class SpriteBlink : MonoBehaviour
 
     Coroutine blinkRoutine;
 
+    private void OnEnable() {
+        rend.material = GM.I.spriteMat;
+    }
+
     public void Blink(){
         if(blinkRoutine != null){StopCoroutine(blinkRoutine);}
         blinkRoutine = StartCoroutine(BlinkRoutine());

@@ -4,5 +4,4 @@ using UnityEngine;
 
 public class EnnemyManager : MonoBehaviour
 {
-    public List<Hittable> hittables;
 }

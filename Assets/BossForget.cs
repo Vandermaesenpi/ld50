@@ -13,6 +13,10 @@ public class BossForget : Boss
     public List<Sprite> shadowAnimation;
     public List<Sprite> appearAnimation;
     public List<Sprite> necklaceAnimation;
+    public SpriteRenderer holeRenderer;
+    public GameObject groundFloor;
+    public GameObject nextBoss;
+
 
     public bool necklaceOpen = false;
 
@@ -30,7 +34,8 @@ public class BossForget : Boss
         headRenderer.enabled = true;
         headBop.enabled = true;
 
-        StartCoroutine(AIRoutine());
+        aiRoutine = StartCoroutine(AIRoutine());
+        bar.gameObject.SetActive(true);
     }
 
 
@@ -62,14 +67,12 @@ public class BossForget : Boss
 
             while (necklaceOpen && necklaceWait > 0)
             {
-                Debug.Log(necklaceWait);
                 necklaceWait -= Time.deltaTime;
                 yield return null;
             }
             List<Sprite> reverseNecklace = new List<Sprite>(necklaceAnimation);
             reverseNecklace.Reverse();
             necklace.SetAnimation(new List<Sprite>{necklaceAnimation[0]}, reverseNecklace);
-
         }        
 
     }
@@ -83,6 +86,27 @@ public class BossForget : Boss
     {
         necklaceOpen = false;
         Damage(3);
+    }
+
+    public override void Die(){
+        StopCoroutine(aiRoutine);
+        StartCoroutine(DeathRoutine());
+    }
+
+    IEnumerator DeathRoutine(){
+        bar.gameObject.SetActive(false);
+        headRenderer.sprite = headStates[1];
+        GM.Cam.Shake(2f,0.02f);
+        yield return new WaitForSeconds(1f);
+        headRenderer.sprite = headStates[1];
+        holeRenderer.enabled = true;
+        groundFloor.SetActive(false);
+        yield return new WaitForSeconds(2f);
+        headRenderer.sprite = headStates[1];
+        GM.Player.transform.position = Vector3.up * 2f;
+        groundFloor.SetActive(true);
+        nextBoss.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     
