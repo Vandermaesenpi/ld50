@@ -117,9 +117,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9597ddac7c93cae468c32bb0dd2c52bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound: {fileID: 0}
   boss: {fileID: 0}
   hurt: 0
   currentState: 6
+  stomp: {fileID: 8300000, guid: bd7a405869b74e84cb5d3b4d3607cd5b, type: 3}
   scanRange: {x: -0.74, y: 0.63}
   telegraphTime: 0.5
   downPos: -0.63

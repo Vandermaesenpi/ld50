@@ -9,6 +9,11 @@ public class UIManager : MonoBehaviour
     public List<Sprite> deathAnim;
 
     public GameObject deathRestartButton;
+    public BossForget firstBoss;
+    public GameObject mainMenu;
+
+    public AudioClip firstMusic;
+    public AudioClip deathSound;
 
     public void ShowDeathUI(){
         foreach (GameObject boss in GM.I.bosses)
@@ -20,10 +25,18 @@ public class UIManager : MonoBehaviour
     }
 
     public void DeathUIShown(){
+        GM.Audio.SFX(deathSound);
         deathRestartButton.SetActive(true);
     }
 
     public void Restart(){
         SceneManager.LoadScene(0);
+    }
+
+    public void StartGame(){
+        mainMenu.SetActive(false);
+        GM.Player.health.gameObject.SetActive(true);
+        GM.Audio.SetMusic(firstMusic);
+        firstBoss.StartGame();
     }
 }

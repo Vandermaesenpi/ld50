@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
+    public AudioClip hurtSound;
+    public AudioClip dieSound;
     public int HP;
     public SpriteRenderer headRenderer;
     public List<Sprite> headStates;
@@ -27,12 +29,14 @@ public class Boss : MonoBehaviour
         HP -= amount;
         if(HP <= 0){
             Die();
+        }else{
+            GM.Audio.SFX(hurtSound);
         }
         bar.SetValue(HP, 15);
     }
 
     public virtual void Die(){
-
+        GM.Audio.SFX(dieSound);
     }
 
     public IEnumerator HurtAnim(float time){

@@ -47,6 +47,7 @@ public class BossSickness : Boss
     }
 
     public override void Die(){
+        base.Die();
         StopCoroutine(aiRoutine);
         StartCoroutine(DeathRoutine());
     }

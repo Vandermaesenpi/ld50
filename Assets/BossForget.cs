@@ -20,7 +20,7 @@ public class BossForget : Boss
 
     public bool necklaceOpen = false;
 
-    private void Start() {
+    public void StartGame() {
         shadow.SetAnimation(shadowAnimation, OnShadowEnd);
     }
 
@@ -89,6 +89,7 @@ public class BossForget : Boss
     }
 
     public override void Die(){
+        base.Die();
         StopCoroutine(aiRoutine);
         StartCoroutine(DeathRoutine());
     }

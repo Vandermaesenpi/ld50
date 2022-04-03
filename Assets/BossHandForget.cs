@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossHandForget : BossHand
 {
+    public AudioClip stomp;
     public Vector2 scanRange;
     public float telegraphTime;
     public float downPos;
@@ -19,6 +20,7 @@ public class BossHandForget : BossHand
     Vector3 idlePos;
 
     Coroutine currentRoutine;
+
     private void Awake() {
         idlePos = transform.position;
         Debug.Log(idlePos + "  " + gameObject.name);
@@ -55,6 +57,7 @@ public class BossHandForget : BossHand
 
             case HandState.ATTACK:
                 GM.Cam.Shake(0.04f, 0.02f);
+                GM.Audio.SFX(stomp);
                 damager.TryHurt();            
             break;
             

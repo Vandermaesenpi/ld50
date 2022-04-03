@@ -10,6 +10,12 @@ public class SimpleButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public Sprite idle, hover, down;
     public UnityEvent onClick;
     bool hovered;
+
+    private void Update() {
+        if(Input.GetButton("Submit")){
+            onClick.Invoke();
+        }
+    }
     public void OnPointerDown(PointerEventData eventData)
     {
         rend.sprite = down;

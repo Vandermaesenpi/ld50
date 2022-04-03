@@ -204,6 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8107b6e0347a98d44aa45e41312090be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound: {fileID: 8300000, guid: ea1fda4763a85d643a8b7068a9fadaab, type: 3}
   damager: {fileID: 5741794339820689259}
   travelSpeed: 0.5
   dead: 0

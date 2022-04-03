@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossHandSicknessSeringe : BossHand
 {
+    public AudioClip stomp;
     public float telegraphTime;
     public float downPos;
     public float downSpeed;
@@ -40,6 +41,7 @@ public class BossHandSicknessSeringe : BossHand
 
             case HandState.ATTACK:
                 GM.Cam.Shake(0.04f, 0.02f);
+                GM.Audio.SFX(stomp);
                 damager.TryHurt();            
             break;
             

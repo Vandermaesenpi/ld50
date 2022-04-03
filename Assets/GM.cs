@@ -29,6 +29,7 @@ public class GM : MonoBehaviour
     public EnnemyManager ennemy;
     public CameraManager cam;
     public UIManager ui;
+    public AudioManager audioManager;
 
     public Material blinkMat;
     public Material spriteMat;
@@ -40,5 +41,6 @@ public class GM : MonoBehaviour
     public static EnnemyManager Ennemies => GM.I.ennemy;
     public static CameraManager Cam => GM.I.cam;
     public static UIManager UI => GM.I.ui;
+    public static AudioManager Audio => GM.I.audioManager;
 
 }

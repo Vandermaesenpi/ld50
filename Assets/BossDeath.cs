@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class BossDeath : Boss
 {
+    public AudioClip winMusic;
     public SpriteBlink blink;
     public List<Transform> skullSpawns;
     public List<SmallSkull> skulls;
     public GameObject skullprefab;
     public GameObject handUp;
     public GameObject handDown;
+    public GameObject restartButton;
     public DeathFaux faux;
 
-    public SpriteRenderer bkg, head, handLeft, handRight, fauxRend, sablier;
+    public SpriteRenderer bkg, head, handLeft, handRight, fauxRend, sablier, credits;
 
     public Sprite headIdle;
+    public Sprite creditB;
 
     public SpriteAnimator winAnim;
     public List<Sprite> winSprites;
@@ -118,17 +121,22 @@ public class BossDeath : Boss
 
     public override void Die()
     {
+        base.Die();
         StartCoroutine(DieRoutine());
     }
 
     IEnumerator DieRoutine(){
         GM.Cam.Shake(2f,0.02f);
+        GM.Audio.SetMusic(null);
         StopCoroutine(aiRoutine);
         bar.gameObject.SetActive(false);
         GM.Player.state.UpdateState(PlayerState.DEAD);
         GM.Player.transform.position = new Vector3(0,-0.68f,0);
+        GM.Audio.SFX(dieSound);
         for (float i = 0; i < 1f; i+= Time.deltaTime)
         {
+            handUp.SetActive(true);
+            handDown.SetActive(false);
             head.sprite = headStates[1];
             handLeft.color = new Color(1,1,1,1f-i);
             handRight.color = new Color(1,1,1,1f-i);
@@ -142,14 +150,16 @@ public class BossDeath : Boss
         fauxRend.color = new Color(1,1,1,0);
         sablier.color = new Color(1,1,1,0);
         head.color = new Color(1,1,1,0);
+        GM.Player.health.gameObject.SetActive(false);
         for (float i = 0; i < 1f; i+= Time.deltaTime)
         {
             bkg.color = new Color(1,1,1,1f-i);
             yield return 0;
         }
         bkg.color = new Color(1,1,1,0);
-        winAnim.SetAnimation(winSprites);
-        yield return new WaitForSeconds(1f);
+        GM.Audio.SetMusic(winMusic);
+        winAnim.SetAnimation(new List<Sprite>{winSprites[winSprites.Count-1]}, winSprites);
+        yield return new WaitForSeconds(2f);
         GM.Player.anim.WinAnim();
         GM.Player.movement.enabled = false;
 
@@ -158,5 +168,32 @@ public class BossDeath : Boss
             GM.Player.transform.position = Vector3.Lerp(new Vector3(0,-0.68f,0), new Vector3(0,1.25f,0), i);
             yield return 0;
         }
+        winSprites.Reverse();
+        winAnim.SetAnimation(new List<Sprite>{winSprites[winSprites.Count-1]}, winSprites);
+        GM.Player.gameObject.SetActive(false);
+        yield return new WaitForSeconds(2f);
+
+        for (float i = 0; i < 1f; i+= Time.deltaTime*0.6f)
+        {
+            credits.color = new Color(1,1,1,i);
+            yield return 0;
+        }
+        credits.color = new Color(1,1,1,1);
+        yield return new WaitForSeconds(1f);
+        for (float i = 0; i < 1f; i+= Time.deltaTime*0.6f)
+        {
+            credits.color = new Color(1,1,1,1f-i);
+            yield return 0;
+        }
+        credits.color = new Color(1,1,1,0);
+        credits.sprite = creditB;
+        for (float i = 0; i < 1f; i+= Time.deltaTime*0.6f)
+        {
+            credits.color = new Color(1,1,1,i);
+            yield return 0;
+        }
+        yield return new WaitForSeconds(1f);
+        restartButton.SetActive(true);
+
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DeathFaux : MonoBehaviour
 {
+    public AudioClip attackSound;
     public PlayerDamager damager;
     public SpriteRenderer rend;
     public SpriteRenderer handRend;
@@ -26,7 +27,7 @@ public class DeathFaux : MonoBehaviour
             }
             transform.position = new Vector3(fromLeft ? -0.02f : 0.02f,0,0);
             yield return new WaitForSeconds(0.4f);
-
+            GM.Audio.SFX(attackSound);
             damager.TryHurt();
             foreach (Sprite s in attackSprite)
             {
